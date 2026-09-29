@@ -1,0 +1,182 @@
+.card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 16px;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.card-hover:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+}
+
+.country-card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+
+  .country-flag {
+    width: 48px;
+    height: 32px;
+    object-fit: cover;
+    border-radius: 4px;
+    border: 1px solid var(--border);
+  }
+
+  .country-info {
+    flex: 1;
+
+    .country-name {
+      font-weight: 600;
+      font-size: 0.95rem;
+    }
+
+    .country-meta {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+  }
+}
+
+.country-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 16px;
+}
+
+.detail-card {
+  .detail-header {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 24px;
+
+    .detail-flag {
+      width: 80px;
+      height: 54px;
+      object-fit: cover;
+      border-radius: 6px;
+      border: 1px solid var(--border);
+    }
+
+    .detail-title {
+      h1 {
+        font-size: 1.75rem;
+        font-weight: 700;
+      }
+
+      .detail-subtitle {
+        color: var(--text-muted);
+        font-size: 0.95rem;
+      }
+    }
+  }
+
+  .detail-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 16px;
+    margin-bottom: 24px;
+
+    .detail-item {
+      label {
+        display: block;
+        font-size: 0.75rem;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        color: var(--text-muted);
+        margin-bottom: 4px;
+      }
+
+      .detail-value {
+        font-weight: 600;
+        font-size: 1rem;
+      }
+    }
+  }
+}
+
+.related-countries {
+  margin-top: 32px;
+
+  h3 {
+    font-size: 1.1rem;
+    margin-bottom: 16px;
+  }
+}
+
+.related-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 12px;
+}
+
+.related-card {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px;
+  cursor: pointer;
+  text-decoration: none;
+  color: var(--text);
+
+  img {
+    width: 36px;
+    height: 24px;
+    object-fit: cover;
+    border-radius: 3px;
+    border: 1px solid var(--border);
+  }
+
+  .related-name {
+    font-weight: 500;
+    font-size: 0.9rem;
+  }
+
+  .related-capital {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+  }
+}
+
+.daily-cards {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 12px;
+  margin-top: 24px;
+
+  @media (max-width: 768px) {
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  }
+}
+
+.daily-card {
+  text-align: center;
+  padding: 12px 8px;
+
+  .daily-day {
+    font-weight: 600;
+    font-size: 0.85rem;
+    margin-bottom: 4px;
+  }
+
+  .daily-icon {
+    font-size: 1.5rem;
+    margin-bottom: 4px;
+  }
+
+  .daily-temps {
+    font-size: 0.85rem;
+
+    .daily-high {
+      font-weight: 600;
+    }
+
+    .daily-low {
+      color: var(--text-muted);
+    }
+  }
+}

@@ -1,0 +1,302 @@
+[
+  {
+    "name": "United States",
+    "code": "US",
+    "capital": "Washington, D.C.",
+    "region": "Americas",
+    "population": 331893745,
+    "languages": ["English"],
+    "currencies": [{ "code": "USD", "name": "United States Dollar" }],
+    "flag": "https://flagcdn.com/w80/us.png"
+  },
+  {
+    "name": "United Kingdom",
+    "code": "GB",
+    "capital": "London",
+    "region": "Europe",
+    "population": 67886011,
+    "languages": ["English"],
+    "currencies": [{ "code": "GBP", "name": "British Pound Sterling" }],
+    "flag": "https://flagcdn.com/w80/gb.png"
+  },
+  {
+    "name": "France",
+    "code": "FR",
+    "capital": "Paris",
+    "region": "Europe",
+    "population": 67390000,
+    "languages": ["French"],
+    "currencies": [{ "code": "EUR", "name": "Euro" }],
+    "flag": "https://flagcdn.com/w80/fr.png"
+  },
+  {
+    "name": "Germany",
+    "code": "DE",
+    "capital": "Berlin",
+    "region": "Europe",
+    "population": 83783942,
+    "languages": ["German"],
+    "currencies": [{ "code": "EUR", "name": "Euro" }],
+    "flag": "https://flagcdn.com/w80/de.png"
+  },
+  {
+    "name": "India",
+    "code": "IN",
+    "capital": "New Delhi",
+    "region": "Asia",
+    "population": 1380004385,
+    "languages": ["Hindi", "English"],
+    "currencies": [{ "code": "INR", "name": "Indian Rupee" }],
+    "flag": "https://flagcdn.com/w80/in.png"
+  },
+  {
+    "name": "Japan",
+    "code": "JP",
+    "capital": "Tokyo",
+    "region": "Asia",
+    "population": 126476461,
+    "languages": ["Japanese"],
+    "currencies": [{ "code": "JPY", "name": "Japanese Yen" }],
+    "flag": "https://flagcdn.com/w80/jp.png"
+  },
+  {
+    "name": "China",
+    "code": "CN",
+    "capital": "Beijing",
+    "region": "Asia",
+    "population": 1439323776,
+    "languages": ["Mandarin Chinese"],
+    "currencies": [{ "code": "CNY", "name": "Chinese Yuan" }],
+    "flag": "https://flagcdn.com/w80/cn.png"
+  },
+  {
+    "name": "Brazil",
+    "code": "BR",
+    "capital": "Brasilia",
+    "region": "Americas",
+    "population": 212559417,
+    "languages": ["Portuguese"],
+    "currencies": [{ "code": "BRL", "name": "Brazilian Real" }],
+    "flag": "https://flagcdn.com/w80/br.png"
+  },
+  {
+    "name": "Australia",
+    "code": "AU",
+    "capital": "Canberra",
+    "region": "Oceania",
+    "population": 25499884,
+    "languages": ["English"],
+    "currencies": [{ "code": "AUD", "name": "Australian Dollar" }],
+    "flag": "https://flagcdn.com/w80/au.png"
+  },
+  {
+    "name": "Canada",
+    "code": "CA",
+    "capital": "Ottawa",
+    "region": "Americas",
+    "population": 37742154,
+    "languages": ["English", "French"],
+    "currencies": [{ "code": "CAD", "name": "Canadian Dollar" }],
+    "flag": "https://flagcdn.com/w80/ca.png"
+  },
+  {
+    "name": "Mexico",
+    "code": "MX",
+    "capital": "Mexico City",
+    "region": "Americas",
+    "population": 128932753,
+    "languages": ["Spanish"],
+    "currencies": [{ "code": "MXN", "name": "Mexican Peso" }],
+    "flag": "https://flagcdn.com/w80/mx.png"
+  },
+  {
+    "name": "Italy",
+    "code": "IT",
+    "capital": "Rome",
+    "region": "Europe",
+    "population": 60461826,
+    "languages": ["Italian"],
+    "currencies": [{ "code": "EUR", "name": "Euro" }],
+    "flag": "https://flagcdn.com/w80/it.png"
+  },
+  {
+    "name": "Spain",
+    "code": "ES",
+    "capital": "Madrid",
+    "region": "Europe",
+    "population": 46754778,
+    "languages": ["Spanish"],
+    "currencies": [{ "code": "EUR", "name": "Euro" }],
+    "flag": "https://flagcdn.com/w80/es.png"
+  },
+  {
+    "name": "South Korea",
+    "code": "KR",
+    "capital": "Seoul",
+    "region": "Asia",
+    "population": 51269185,
+    "languages": ["Korean"],
+    "currencies": [{ "code": "KRW", "name": "South Korean Won" }],
+    "flag": "https://flagcdn.com/w80/kr.png"
+  },
+  {
+    "name": "Russia",
+    "code": "RU",
+    "capital": "Moscow",
+    "region": "Europe",
+    "population": 145934462,
+    "languages": ["Russian"],
+    "currencies": [{ "code": "RUB", "name": "Russian Ruble" }],
+    "flag": "https://flagcdn.com/w80/ru.png"
+  },
+  {
+    "name": "South Africa",
+    "code": "ZA",
+    "capital": "Pretoria",
+    "region": "Africa",
+    "population": 59308690,
+    "languages": ["Zulu", "Xhosa", "Afrikaans", "English"],
+    "currencies": [{ "code": "ZAR", "name": "South African Rand" }],
+    "flag": "https://flagcdn.com/w80/za.png"
+  },
+  {
+    "name": "Egypt",
+    "code": "EG",
+    "capital": "Cairo",
+    "region": "Africa",
+    "population": 102334404,
+    "languages": ["Arabic"],
+    "currencies": [{ "code": "EGP", "name": "Egyptian Pound" }],
+    "flag": "https://flagcdn.com/w80/eg.png"
+  },
+  {
+    "name": "Nigeria",
+    "code": "NG",
+    "capital": "Abuja",
+    "region": "Africa",
+    "population": 206139589,
+    "languages": ["English"],
+    "currencies": [{ "code": "NGN", "name": "Nigerian Naira" }],
+    "flag": "https://flagcdn.com/w80/ng.png"
+  },
+  {
+    "name": "Argentina",
+    "code": "AR",
+    "capital": "Buenos Aires",
+    "region": "Americas",
+    "population": 45195774,
+    "languages": ["Spanish"],
+    "currencies": [{ "code": "ARS", "name": "Argentine Peso" }],
+    "flag": "https://flagcdn.com/w80/ar.png"
+  },
+  {
+    "name": "Chile",
+    "code": "CL",
+    "capital": "Santiago",
+    "region": "Americas",
+    "population": 19116201,
+    "languages": ["Spanish"],
+    "currencies": [{ "code": "CLP", "name": "Chilean Peso" }],
+    "flag": "https://flagcdn.com/w80/cl.png"
+  },
+  {
+    "name": "Sweden",
+    "code": "SE",
+    "capital": "Stockholm",
+    "region": "Europe",
+    "population": 10099265,
+    "languages": ["Swedish"],
+    "currencies": [{ "code": "SEK", "name": "Swedish Krona" }],
+    "flag": "https://flagcdn.com/w80/se.png"
+  },
+  {
+    "name": "Norway",
+    "code": "NO",
+    "capital": "Oslo",
+    "region": "Europe",
+    "population": 5421241,
+    "languages": ["Norwegian"],
+    "currencies": [{ "code": "NOK", "name": "Norwegian Krone" }],
+    "flag": "https://flagcdn.com/w80/no.png"
+  },
+  {
+    "name": "Netherlands",
+    "code": "NL",
+    "capital": "Amsterdam",
+    "region": "Europe",
+    "population": 17134872,
+    "languages": ["Dutch"],
+    "currencies": [{ "code": "EUR", "name": "Euro" }],
+    "flag": "https://flagcdn.com/w80/nl.png"
+  },
+  {
+    "name": "Switzerland",
+    "code": "CH",
+    "capital": "Bern",
+    "region": "Europe",
+    "population": 8654622,
+    "languages": ["German", "French", "Italian", "Romansh"],
+    "currencies": [{ "code": "CHF", "name": "Swiss Franc" }],
+    "flag": "https://flagcdn.com/w80/ch.png"
+  },
+  {
+    "name": "Thailand",
+    "code": "TH",
+    "capital": "Bangkok",
+    "region": "Asia",
+    "population": 69799978,
+    "languages": ["Thai"],
+    "currencies": [{ "code": "THB", "name": "Thai Baht" }],
+    "flag": "https://flagcdn.com/w80/th.png"
+  },
+  {
+    "name": "Indonesia",
+    "code": "ID",
+    "capital": "Jakarta",
+    "region": "Asia",
+    "population": 273523615,
+    "languages": ["Indonesian"],
+    "currencies": [{ "code": "IDR", "name": "Indonesian Rupiah" }],
+    "flag": "https://flagcdn.com/w80/id.png"
+  },
+  {
+    "name": "Turkey",
+    "code": "TR",
+    "capital": "Ankara",
+    "region": "Asia",
+    "population": 84339067,
+    "languages": ["Turkish"],
+    "currencies": [{ "code": "TRY", "name": "Turkish Lira" }],
+    "flag": "https://flagcdn.com/w80/tr.png"
+  },
+  {
+    "name": "Poland",
+    "code": "PL",
+    "capital": "Warsaw",
+    "region": "Europe",
+    "population": 37846611,
+    "languages": ["Polish"],
+    "currencies": [{ "code": "PLN", "name": "Polish Zloty" }],
+    "flag": "https://flagcdn.com/w80/pl.png"
+  },
+  {
+    "name": "Philippines",
+    "code": "PH",
+    "capital": "Manila",
+    "region": "Asia",
+    "population": 109581078,
+    "languages": ["Filipino", "English"],
+    "currencies": [{ "code": "PHP", "name": "Philippine Peso" }],
+    "flag": "https://flagcdn.com/w80/ph.png"
+  },
+  {
+    "name": "United Arab Emirates",
+    "code": "AE",
+    "capital": "Abu Dhabi",
+    "region": "Asia",
+    "population": 9890402,
+    "languages": ["Arabic"],
+    "currencies": [{ "code": "AED", "name": "United Arab Emirates Dirham" }],
+    "flag": "https://flagcdn.com/w80/ae.png"
+  }
+]
