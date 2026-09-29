@@ -33,7 +33,7 @@ const dayNames = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
 const days = computed(() => {
   if (!props.daily) return []
   return props.daily.time.map((t, i) => {
-    const d = new Date(t + 'T00:00:00')
+    const d = new Date(t)
     const code = props.daily.weather_code[i]
     const info = weatherCodes[code] || { label: 'Unknown', emoji: '❓' }
     return {
