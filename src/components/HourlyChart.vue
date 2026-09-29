@@ -51,8 +51,8 @@ const chartData = computed(() => {
     }),
     datasets: [
       {
-        label: `Temperature (°${props.unit})`,
-        data: temps.map(convertTemp),
+        label: 'Temperature',
+        data: temps,
         borderColor: '#0ea5e9',
         backgroundColor: 'rgba(14, 165, 233, 0.1)',
         fill: true,
@@ -65,8 +65,8 @@ const chartData = computed(() => {
 })
 
 const chartOptions = computed(() => ({
-  responsive: true,
-  maintainAspectRatio: true,
+  responsive: false,
+  maintainAspectRatio: false,
   plugins: {
     legend: { display: false },
     tooltip: {
