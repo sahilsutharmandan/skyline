@@ -75,10 +75,10 @@ async function fetchWeather(lat, lon, tz) {
       `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current=temperature_2m,relative_humidity_2m,wind_speed_10m,weather_code&hourly=temperature_2m,weather_code&daily=weather_code,temperature_2m_max,temperature_2m_min&timezone=${encodeURIComponent(timezone)}`
     )
     weather.value = await res.json()
+    loading.value = false
   } catch {
     weather.value = null
   }
-  loading.value = false
 }
 
 async function loadCity(city) {

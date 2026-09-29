@@ -4,7 +4,7 @@
       <div class="modal">
         <div class="modal-header">
           <h2>Settings</h2>
-          <button class="modal-close" @click="$emit('close')">&times;</button>
+          <div class="modal-close" @click="$emit('close')">&times;</div>
         </div>
         <div class="modal-field">
           <label>Temperature Unit</label>
