@@ -43,7 +43,7 @@
           </td>
           <td>{{ c.capital }}</td>
           <td>{{ c.region }}</td>
-          <td>{{ c.population.toLocaleString() }}</td>
+          <td>{{ c.population }}</td>
         </tr>
       </tbody>
     </table>
