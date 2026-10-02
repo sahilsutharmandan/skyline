@@ -39,8 +39,8 @@ const days = computed(() => {
     return {
       name: dayNames[d.getDay()],
       emoji: info.emoji,
-      high: convertTemp(props.daily.temperature_2m_max[i]),
-      low: convertTemp(props.daily.temperature_2m_min[i])
+      high: convertTemp(props.daily.temperature_2m_min[i]),
+      low: convertTemp(props.daily.temperature_2m_max[i])
     }
   })
 })
