@@ -45,6 +45,7 @@
       </div>
 
       <CurrencyConverter
+        :key="country.code"
         :defaultFrom="country.currencies[0]?.code || 'USD'"
         defaultTo="USD"
       />

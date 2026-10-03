@@ -31,7 +31,7 @@
 </template>
 
 <script setup>
-import { ref, computed } from 'vue'
+import { ref, computed, watch } from 'vue'
 import countries from '../data/countries.json'
 import { useSettingsStore } from '../stores/settings.js'
 import CountryTable from '../components/CountryTable.vue'
@@ -41,18 +41,26 @@ const settings = useSettingsStore()
 const searchQuery = ref('')
 const regionFilter = ref(settings.defaultRegion)
 
+watch(
+  () => settings.defaultRegion,
+  (val) => {
+    regionFilter.value = val
+  }
+)
+
 const filtered = computed(() => {
-  if (searchQuery.value) {
-    const q = searchQuery.value.toLowerCase()
-    return countries.filter(
+  let list = countries
+  if (regionFilter.value !== 'All') {
+    list = list.filter((c) => c.region === regionFilter.value)
+  }
+  if (searchQuery.value.trim()) {
+    const q = searchQuery.value.trim().toLowerCase()
+    list = list.filter(
       (c) =>
         c.name.toLowerCase().includes(q) ||
         c.capital.toLowerCase().includes(q)
     )
   }
-  if (regionFilter.value !== 'All') {
-    return countries.filter((c) => c.region === regionFilter.value)
-  }
-  return countries
+  return list
 })
 </script>

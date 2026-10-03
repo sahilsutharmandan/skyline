@@ -33,7 +33,7 @@
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue'
+import { ref, watch, onMounted } from 'vue'
 
 const props = defineProps({
   defaultFrom: { type: String, default: 'USD' },
@@ -52,6 +52,26 @@ const fromCurrency = ref(props.defaultFrom)
 const toCurrency = ref(props.defaultTo)
 const result = ref(null)
 const error = ref('')
+
+watch(
+  () => props.defaultFrom,
+  (newVal) => {
+    if (newVal) {
+      fromCurrency.value = newVal
+      convert()
+    }
+  }
+)
+
+watch(
+  () => props.defaultTo,
+  (newVal) => {
+    if (newVal) {
+      toCurrency.value = newVal
+      convert()
+    }
+  }
+)
 
 async function convert() {
   if (!amount.value || amount.value <= 0) {
