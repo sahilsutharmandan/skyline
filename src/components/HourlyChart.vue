@@ -42,7 +42,7 @@ function convertTemp(val) {
 const chartData = computed(() => {
   if (!props.hourly) return null
   const times = props.hourly.time.slice(0, 24)
-  const temps = props.hourly.temperature_2m.slice(0, 24)
+  const temps = props.hourly.temperature_2m.slice(0, 24).map(convertTemp)
 
   return {
     labels: times.map((t) => {
@@ -65,8 +65,9 @@ const chartData = computed(() => {
 })
 
 const chartOptions = computed(() => ({
-  responsive: false,
-  maintainAspectRatio: false,
+  responsive: true,
+  maintainAspectRatio: true,
+  aspectRatio: 3.5,
   plugins: {
     legend: { display: false },
     tooltip: {
