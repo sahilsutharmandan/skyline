@@ -4,7 +4,7 @@
   gap: 24px;
   align-items: start;
 
-  @media (max-width: 480px) {
+  @media (max-width: 1024px) {
     grid-template-columns: 1fr;
   }
 }
@@ -19,7 +19,6 @@
   gap: 24px;
   margin-bottom: 24px;
   padding: 24px;
-  background: #fff;
 
   .current-icon {
     font-size: 3rem;
@@ -39,7 +38,8 @@
 
   .current-details {
     display: flex;
-    gap: 24px;
+    flex-wrap: wrap;
+    gap: 8px 24px;
     margin-top: 8px;
 
     .current-detail {
@@ -87,11 +87,16 @@
   }
 }
 
+.hourly-chart {
+  position: relative;
+  height: 150px;
+}
+
 .sidebar {
   position: sticky;
   top: calc(var(--header-height) + 24px);
 
-  @media (max-width: 768px) {
+  @media (max-width: 1024px) {
     position: static;
     order: -1;
   }

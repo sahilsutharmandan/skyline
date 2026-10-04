@@ -1,7 +1,9 @@
 <template>
   <div class="card chart-container" v-if="chartData">
     <h3>Next 24 Hours</h3>
-    <Line :data="chartData" :options="chartOptions" />
+    <div class="hourly-chart">
+      <Line :data="chartData" :options="chartOptions" />
+    </div>
   </div>
 </template>
 
@@ -65,7 +67,7 @@ const chartData = computed(() => {
 })
 
 const chartOptions = computed(() => ({
-  responsive: false,
+  responsive: true,
   maintainAspectRatio: false,
   plugins: {
     legend: { display: false },
