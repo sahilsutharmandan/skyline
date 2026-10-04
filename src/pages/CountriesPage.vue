@@ -17,6 +17,10 @@
           <option value="Europe">Europe</option>
           <option value="Oceania">Oceania</option>
         </select>
+        <select v-model="languageFilter" class="input filter-select">
+          <option value="All">All Languages</option>
+          <option v-for="l in languages" :key="l" :value="l">{{ l }}</option>
+        </select>
       </div>
       <CountryTable :countries="filtered" />
       <div class="mobile-cards">
@@ -41,19 +45,26 @@ const settings = useSettingsStore()
 const searchQuery = ref('')
 const regionFilter = ref(settings.defaultRegion)
 
+const languageFilter = ref('All')
+
+const languages = [...new Set(countries.flatMap((c) => c.languages))].sort()
+
 const filtered = computed(() => {
-  let list = countries
+  const q = searchQuery.value.trim().toLowerCase()
+  const checks = []
   if (regionFilter.value !== 'All') {
-    list = list.filter((c) => c.region === regionFilter.value)
+    checks.push((c) => c.region === regionFilter.value)
   }
-  if (searchQuery.value) {
-    const q = searchQuery.value.toLowerCase()
-    list = list.filter(
+  if (languageFilter.value !== 'All') {
+    checks.push((c) => c.languages.includes(languageFilter.value))
+  }
+  if (q) {
+    checks.push(
       (c) =>
-        c.name.toLowerCase().includes(q) ||
-        c.capital.toLowerCase().includes(q)
+        c.name.toLowerCase().includes(q) || c.capital.toLowerCase().includes(q)
     )
   }
-  return list
+  if (!checks.length) return countries
+  return countries.filter((c) => checks.some((check) => check(c)))
 })
 </script>

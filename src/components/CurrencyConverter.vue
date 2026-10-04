@@ -26,14 +26,14 @@
       </div>
     </div>
     <div v-if="result !== null" class="converter-result">
-      {{ amount }} {{ fromCurrency }} = {{ result }} {{ toCurrency }}
+      {{ money.format(amount) }} = {{ money.format(result) }}
     </div>
     <div v-if="error" class="converter-error">{{ error }}</div>
   </div>
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue'
+import { ref, computed, onMounted } from 'vue'
 
 const props = defineProps({
   defaultFrom: { type: String, default: 'USD' },
@@ -53,13 +53,21 @@ const toCurrency = ref(props.defaultTo)
 const result = ref(null)
 const error = ref('')
 
+const money = computed(
+  () =>
+    new Intl.NumberFormat(undefined, {
+      style: 'currency',
+      currency: fromCurrency.value
+    })
+)
+
 async function convert() {
   if (!amount.value || amount.value <= 0) {
     result.value = null
     return
   }
   if (fromCurrency.value === toCurrency.value) {
-    result.value = amount.value.toFixed(2)
+    result.value = amount.value
     return
   }
   error.value = ''
@@ -69,7 +77,7 @@ async function convert() {
     )
     const data = await res.json()
     if (data.rates && data.rates[toCurrency.value]) {
-      result.value = (amount.value * data.rates[toCurrency.value]).toFixed(2)
+      result.value = amount.value * data.rates[toCurrency.value]
     } else {
       error.value = 'Conversion not available'
       result.value = null

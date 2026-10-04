@@ -69,19 +69,13 @@ function sort(key) {
   }
 }
 
+const collator = new Intl.Collator(undefined, { sensitivity: 'base', numeric: true })
+
 const sorted = computed(() => {
-  const arr = [...props.countries]
-  arr.sort((a, b) => {
-    let va = a[sortKey.value]
-    let vb = b[sortKey.value]
-    if (typeof va === 'string') {
-      va = va.toLowerCase()
-      vb = vb.toLowerCase()
-    }
-    if (va < vb) return sortDir.value === 'asc' ? -1 : 1
-    if (va > vb) return sortDir.value === 'asc' ? 1 : -1
-    return 0
-  })
-  return arr
+  const dir = sortDir.value === 'asc' ? 1 : -1
+  return [...props.countries].sort(
+    (a, b) =>
+      dir * collator.compare(String(a[sortKey.value]), String(b[sortKey.value]))
+  )
 })
 </script>
