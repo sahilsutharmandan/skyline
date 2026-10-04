@@ -144,13 +144,9 @@
 
 .daily-cards {
   display: grid;
-  grid-template-columns: repeat(7, 1fr);
+  grid-template-columns: repeat(7, minmax(84px, 1fr));
   gap: 12px;
   margin-top: 24px;
-
-  @media (max-width: 768px) {
-    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
-  }
 }
 
 .daily-card {

@@ -1,5 +1,7 @@
+@use 'mixins' as *;
+
 .country-table-wrapper {
-  overflow-x: auto;
+  width: 100%;
 }
 
 .country-table {
@@ -14,6 +16,10 @@
   }
 
   th {
+    position: sticky;
+    top: var(--header-height);
+    z-index: 1;
+    background: inherit;
     font-size: 0.8rem;
     text-transform: uppercase;
     letter-spacing: 0.05em;
@@ -62,8 +68,10 @@
     font-weight: 500;
   }
 
-  @media (max-width: 768px) {
-    display: none;
+  display: none;
+
+  @include above(tablet) {
+    display: table;
   }
 }
 
@@ -86,7 +94,7 @@
 .mobile-cards {
   display: none;
 
-  @media (max-width: 768px) {
+  @include below(tablet) {
     display: grid;
     grid-template-columns: 1fr;
     gap: 12px;
