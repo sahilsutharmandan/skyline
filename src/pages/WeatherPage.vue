@@ -7,9 +7,9 @@
         <div class="weather-main">
           <CitySearch @select="loadCity" />
 
-          <div v-if="loading" class="loading">Loading weather data...</div>
+          <div v-if="loading && !weather" class="loading">Loading weather data...</div>
 
-          <template v-if="weather && !loading">
+          <div v-if="weather" class="weather-body" :class="{ refreshing: loading }">
             <div style="display: flex; align-items: center; gap: 16px; margin-bottom: 16px; flex-wrap: wrap">
               <h2>{{ cityName }}</h2>
               <div class="unit-toggle">
@@ -32,7 +32,7 @@
             <WeatherCurrent :data="weather.current" :unit="unit" />
             <HourlyChart :hourly="weather.hourly" :unit="unit" />
             <DailyCards :daily="weather.daily" :unit="unit" />
-          </template>
+          </div>
         </div>
       </div>
     </div>
@@ -72,13 +72,12 @@ async function fetchWeather(lat, lon, tz) {
   try {
     const timezone = tz || 'auto'
     const res = await fetch(
-      `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current=temperature_2m,relative_humidity_2m,wind_speed_10m,weather_code&hourly=temperature_2m,weather_code&daily=weather_code,temperature_2m_max,temperature_2m_min&timezone=${encodeURIComponent(timezone)}`
+      `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current=temperature_2m,apparent_temperature,relative_humidity_2m,wind_speed_10m,weather_code&hourly=temperature_2m,weather_code&daily=weather_code,temperature_2m_max,temperature_2m_min&timezone=${encodeURIComponent(timezone)}`
     )
-    weather.value = await res.json()
-  } catch {
-    weather.value = null
+    if (res.ok) weather.value = await res.json()
+  } finally {
+    loading.value = false
   }
-  loading.value = false
 }
 
 async function loadCity(city) {

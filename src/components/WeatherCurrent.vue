@@ -5,11 +5,8 @@
       <div class="current-temp">{{ displayTemp }}&deg;{{ unit }}</div>
       <div class="current-label">{{ weatherInfo.label }}</div>
       <div class="current-details">
-        <div class="current-detail">
-          Humidity: <strong>{{ data.relative_humidity_2m }}%</strong>
-        </div>
-        <div class="current-detail">
-          Wind: <strong>{{ data.wind_speed_10m }} km/h</strong>
+        <div v-for="d in details" :key="d.label" class="current-detail">
+          {{ d.label }}: <strong>{{ d.value }}</strong>
         </div>
       </div>
     </div>
@@ -35,5 +32,14 @@ const displayTemp = computed(() => {
   const temp = props.data.temperature_2m
   if (props.unit === 'F') return Math.round(temp * 9 / 5 + 32)
   return Math.round(temp)
+})
+
+const details = computed(() => {
+  if (!props.data) return []
+  return [
+    { label: 'Feels like', value: `${Math.round(props.data.apparent_temperature)}°${props.unit}` },
+    { label: 'Humidity', value: `${props.data.relative_humidity_2m}%` },
+    { label: 'Wind', value: `${props.data.wind_speed_10m} km/h` }
+  ]
 })
 </script>
