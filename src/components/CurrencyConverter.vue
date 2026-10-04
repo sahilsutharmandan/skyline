@@ -9,18 +9,17 @@
           type="number"
           min="0"
           class="input"
-          @input="convert"
         />
       </div>
       <div class="converter-field">
         <label>From</label>
-        <select v-model="fromCurrency" class="input" @change="convert">
+        <select v-model="fromCurrency" class="input">
           <option v-for="c in currencies" :key="c" :value="c">{{ c }}</option>
         </select>
       </div>
       <div class="converter-field">
         <label>To</label>
-        <select v-model="toCurrency" class="input" @change="convert">
+        <select v-model="toCurrency" class="input">
           <option v-for="c in currencies" :key="c" :value="c">{{ c }}</option>
         </select>
       </div>
@@ -33,7 +32,7 @@
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue'
+import { ref, watch } from 'vue'
 
 const props = defineProps({
   defaultFrom: { type: String, default: 'USD' },
@@ -53,7 +52,18 @@ const toCurrency = ref(props.defaultTo)
 const result = ref(null)
 const error = ref('')
 
+let conversionId = 0
+
+watch(() => props.defaultFrom, (value) => { fromCurrency.value = value })
+watch(() => props.defaultTo, (value) => { toCurrency.value = value })
+
 async function convert() {
+  const requestId = ++conversionId
+  const currentAmount = amount.value
+  const from = fromCurrency.value
+  const to = toCurrency.value
+  result.value = null
+  error.value = ''
   if (!amount.value || amount.value <= 0) {
     result.value = null
     return
@@ -62,23 +72,24 @@ async function convert() {
     result.value = amount.value.toFixed(2)
     return
   }
-  error.value = ''
   try {
     const res = await fetch(
-      `https://api.frankfurter.dev/v1/latest?from=${fromCurrency.value}&to=${toCurrency.value}`
+      `https://api.frankfurter.dev/v1/latest?from=${from}&to=${to}`
     )
     const data = await res.json()
-    if (data.rates && data.rates[toCurrency.value]) {
-      result.value = (amount.value * data.rates[toCurrency.value]).toFixed(2)
+    if (requestId !== conversionId) return
+    if (data.rates && data.rates[to]) {
+      result.value = (currentAmount * data.rates[to]).toFixed(2)
     } else {
       error.value = 'Conversion not available'
       result.value = null
     }
   } catch {
+    if (requestId !== conversionId) return
     error.value = 'Failed to fetch exchange rate'
     result.value = null
   }
 }
 
-onMounted(convert)
+watch([amount, fromCurrency, toCurrency], convert, { immediate: true })
 </script>

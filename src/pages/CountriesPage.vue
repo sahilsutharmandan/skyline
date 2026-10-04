@@ -42,17 +42,10 @@ const searchQuery = ref('')
 const regionFilter = ref(settings.defaultRegion)
 
 const filtered = computed(() => {
-  if (searchQuery.value) {
-    const q = searchQuery.value.toLowerCase()
-    return countries.filter(
-      (c) =>
-        c.name.toLowerCase().includes(q) ||
-        c.capital.toLowerCase().includes(q)
-    )
-  }
-  if (regionFilter.value !== 'All') {
-    return countries.filter((c) => c.region === regionFilter.value)
-  }
-  return countries
+  const q = searchQuery.value.trim().toLowerCase()
+  return countries.filter((c) =>
+    (regionFilter.value === 'All' || c.region === regionFilter.value) &&
+    (!q || c.name.toLowerCase().includes(q) || c.capital.toLowerCase().includes(q))
+  )
 })
 </script>
