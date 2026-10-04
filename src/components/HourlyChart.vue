@@ -1,7 +1,9 @@
 <template>
   <div class="card chart-container" v-if="chartData">
     <h3>Next 24 Hours</h3>
-    <Line :data="chartData" :options="chartOptions" />
+    <div class="chart-plot">
+      <Line :data="chartData" :options="chartOptions" />
+    </div>
   </div>
 </template>
 
@@ -52,7 +54,7 @@ const chartData = computed(() => {
     datasets: [
       {
         label: 'Temperature',
-        data: temps,
+        data: temps.map(convertTemp),
         borderColor: '#0ea5e9',
         backgroundColor: 'rgba(14, 165, 233, 0.1)',
         fill: true,
@@ -65,7 +67,7 @@ const chartData = computed(() => {
 })
 
 const chartOptions = computed(() => ({
-  responsive: false,
+  responsive: true,
   maintainAspectRatio: false,
   plugins: {
     legend: { display: false },
@@ -87,7 +89,7 @@ const chartOptions = computed(() => ({
       grid: { color: 'rgba(148, 163, 184, 0.15)' },
       ticks: {
         color: '#94a3b8',
-        callback: (val) => `${val}°`
+        callback: (val) => `${val}°${props.unit}`
       }
     }
   }

@@ -87,6 +87,12 @@
   }
 }
 
+.chart-plot {
+  position: relative;
+  height: 240px;
+  width: 100%;
+}
+
 .sidebar {
   position: sticky;
   top: calc(var(--header-height) + 24px);
