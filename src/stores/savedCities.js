@@ -9,11 +9,16 @@ export const useSavedCitiesStore = defineStore('savedCities', () => {
   }
 
   function addCity(city) {
+    const entry = {
+      ...city,
+      lat: Number(Number(city.lat).toFixed(2)),
+      lon: Number(Number(city.lon).toFixed(2))
+    }
     const exists = cities.value.some(
-      (c) => c.lat === city.lat && c.lon === city.lon
+      (c) => c.lat === entry.lat && c.lon === entry.lon
     )
     if (!exists) {
-      cities.value.push(city)
+      cities.value.push(entry)
       save()
     }
   }

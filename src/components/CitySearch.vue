@@ -18,6 +18,9 @@
         <div class="search-country">{{ r.country }}</div>
       </div>
     </div>
+    <div v-else-if="query.length >= 2 && !searching" class="search-results search-empty">
+      No cities found for “{{ query }}”
+    </div>
   </div>
 </template>
 
@@ -28,6 +31,7 @@ const emit = defineEmits(['select'])
 
 const query = ref('')
 const results = ref([])
+const searching = ref(false)
 let debounceTimer = null
 
 function search() {
@@ -36,6 +40,7 @@ function search() {
     results.value = []
     return
   }
+  searching.value = true
   debounceTimer = setTimeout(async () => {
     try {
       const res = await fetch(
@@ -45,6 +50,8 @@ function search() {
       results.value = data.results || []
     } catch {
       results.value = []
+    } finally {
+      searching.value = false
     }
   }, 300)
 }
